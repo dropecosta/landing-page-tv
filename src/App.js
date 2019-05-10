@@ -1,10 +1,12 @@
 import React from 'react';
 import './App.scss';
 
+import Sidebar from './components/Sidebar'
+
 function App() {
   return (
     <div className="App">
-      <p>Starting application...</p>
+      <Sidebar />
     </div>
   );
 }
