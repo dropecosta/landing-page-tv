@@ -1,37 +1,37 @@
-import React from 'react'
+import React, { Fragment } from 'react'
 import logo from '../img/logo_header.svg'
-import FeatureTitle from './FeatureTitle'
-import FeatureList from './FeatureList'
 
 import styled from 'styled-components'
+import FeatureWrapper from './FeatureWrapper';
 
 const Header = styled.div`
-    header {
         position: fixed;
         top: 0;
-        right: 2.5rem;
-
-        svg {
-        filter: drop-shadow(1px 2px 0 rgba(0, 0, 0, .6));
-        }
-    }
+        right: 2rem;
 `
+
+
 
 class Feature extends React.Component {
 
     render() {
         return(
-            <div>
+            <Fragment>
                 <Header>
-                    <header>
-                        <svg height="80" width="160" fill="#FFF">
+                        <svg 
+                            width="160" 
+                            height="80" 
+                            fill="#FFF" 
+                            xmlns="http://www.w3.org/2000/svg"
+                            xmlnsXlink="http://www.w3.org/1999/xlink"
+                        >
                             <use xlinkHref={`${logo}#logo_header `} />
                         </svg>
-                    </header>          
+                        {/* <img src={logo} alt="Logo Big Brother Brasil" /> */}        
                 </Header>
-                <FeatureTitle />
-                <FeatureList />
-            </div>
+
+                <FeatureWrapper />
+            </Fragment>
         )
     }
 }

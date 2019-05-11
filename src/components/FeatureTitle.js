@@ -5,20 +5,14 @@ import styled from 'styled-components'
 
 const Main = styled.div`
     .logo{
-        height: 8rem;
-        width: auto;
-        position: relative;
-        z-index: 3;
+        height: 8rem;   
     }
 
     h1{
-        color: white;
+        color: #FFF;
         font-weight: 500;
-        margin-bottom: 2.5rem;
-        white-space: nowrap;
         position: relative;
-        z-index: 2;
-      }
+    }
 `
 
 

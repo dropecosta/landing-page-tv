@@ -1,5 +1,7 @@
 import React from 'react';
 import styled from 'styled-components'
+import { FiSearch, FiRadio } from 'react-icons/fi';
+import { FaShoppingBag, FaUserCircle, FaHome } from 'react-icons/fa';
 
 const Menu = styled.aside`
     display: flex;
@@ -12,8 +14,8 @@ const Menu = styled.aside`
     background-color: #222;
     transition :.3s, widith, .3s;
 
-    &:focus {
-        width: 17rem;
+    &:hover {
+        width: 15rem;
         transition-duration: .5s;
     
         ul li button span {
@@ -52,27 +54,66 @@ const Menu = styled.aside`
                 white-space: nowrap;
                 position: absolute;
                 left: 5rem;
-                transition-duration: .5s;
+                transition-duration: .6s;
             }
           }
         }
       }
 `
 
-class Sidebar extends React.Component {
 
+
+class Sidebar extends React.Component {
+    constructor(props) {
+        super(props);
+        // Any number of links can be added here
+        this.state = {
+            links: [
+                {
+                    text: 'Busca',
+                    icon: <FiSearch />
+                }, 
+                {
+                    text: 'Início',
+                    icon: <FaHome />
+                }, 
+                {
+                    text: 'Agora na Globo',
+                    icon: <FiRadio />
+                }, 
+                {
+                    text: 'Categorias',
+                    icon: <FaShoppingBag />
+                }, 
+                {
+                    text: 'Minha Conta',
+                    icon: <FaUserCircle />
+                }
+            ]
+        }
+    }
+      
     render() {
+        let links = this.state.links.map((link, i) => 
+            <li ref={i + 1}>
+                <button>
+                <i aria-hidden="true">{ link.icon }</i>
+                <span>{ link.text }</span>
+                </button>
+            </li>);
+
         return (
             <Menu>
                 <ul>
-                    <li><button>Item</button></li>
-                    <li><button>Item</button></li>
-                    <li><button>Item</button></li>
+                { links }
                 </ul>
             </Menu>
         )
         
     }
+
+    
 }
+
 
 export default Sidebar
