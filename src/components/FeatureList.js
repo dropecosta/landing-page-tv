@@ -2,24 +2,22 @@ import React from 'react';
 import FeatureItem from './FeatureItem';
 import styled from 'styled-components'
 
-import featureImg from '../img/bbb.jpg';
-import Carousel from 'nuka-carousel';
-
 
 
 const List = styled.div`
     color: white;
-    position: absolute;
-    bottom: 0;
-    z-index: 2;
-    padding: 0 2rem;
-    margin-left: 5.2rem;
+    background: linear-gradient(rgba(0, 0, 0, .7), rgba(0, 0, 0, .7));
+    padding: 0 2rem 2rem;
+    min-width: 100vw;
+    margin-top: 5rem;
+    position: relative;
+    left: -2rem;
   
      h2 {
       font-size: 1.1rem;
       font-weight: 700;
       position: relative;
-      z-index: 4;
+      margin-top: 0;
     }
 
     .feature-wrapper {
@@ -52,7 +50,7 @@ const FeatureList = () => {
       <List>
         <h2>Agora no BBB</h2>
   
-         <div class="feature-wrapper">
+         <div className="feature-wrapper">
           <FeatureItem />
           <FeatureItem />
           <FeatureItem />

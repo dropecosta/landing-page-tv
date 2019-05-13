@@ -5,12 +5,11 @@ import styled from 'styled-components'
 
 const Main = styled.div`
     background: linear-gradient(rgba(0, 0, 0, .7), rgba(0, 0, 0, .7));
-    height: 100%;
-    width: 70%;
+    min-height: 100%;
+    width: 35vw;
     position: relative;
     z-index: 2;
     padding: 5rem 2rem;
-    margin-left: 5.2rem;
   
      &:after {
       content: '';

@@ -5,9 +5,13 @@ import styled from 'styled-components'
 import FeatureWrapper from './FeatureWrapper';
 
 const Header = styled.div`
-        // position: fixed;
-        // top: 0;
-        // right: 2rem;
+        position: fixed;
+        top: 0;
+        right: 2.5rem;
+        
+        svg {
+            filter: drop-shadow(2px 2px 0 rgba(0, 0, 0, .8));
+          }
 `
 
 
