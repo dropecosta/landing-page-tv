@@ -5,9 +5,9 @@ import styled from 'styled-components'
 import FeatureWrapper from './FeatureWrapper';
 
 const Header = styled.div`
-        position: fixed;
-        top: 0;
-        right: 2rem;
+        // position: fixed;
+        // top: 0;
+        // right: 2rem;
 `
 
 
