@@ -20,6 +20,8 @@ align-items: flex-start;
 justify-content: flex-end;
 color: white;
 padding: 1rem;
+// flex-shrink: 0;
+// flex: 1;
 
 &:focus {
     transition-duration: .5s;
@@ -40,11 +42,11 @@ padding: 1rem;
 
 `
 
- const FeatureItem = () => {
+ const FeatureItem = ({ category, title }) => {
   return (
     <Item>
-      <span className="category">Realities</span>
-       <h3>Piscina</h3>
+      <span className="category">{category}</span>
+       <h3>{title}</h3>
     </Item>
   )
 }

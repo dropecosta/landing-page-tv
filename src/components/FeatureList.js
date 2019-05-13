@@ -2,16 +2,21 @@ import React from 'react';
 import FeatureItem from './FeatureItem';
 import styled from 'styled-components'
 
+// import featureImg from '../img/bbb.jpg';
+import Carousel from 'nuka-carousel';
+
 
 
 const List = styled.div`
     color: white;
     background: linear-gradient(rgba(0, 0, 0, .7), rgba(0, 0, 0, .7));
     padding: 0 2rem 2rem;
-    min-width: 100vw;
+    width: 100vw;
     margin-top: 5rem;
     position: relative;
     left: -2rem;
+    z-index: 2;
+    transition-duration: .5s;
   
      h2 {
       font-size: 1.1rem;
@@ -46,14 +51,29 @@ const List = styled.div`
 
 
 const FeatureList = () => {
+    const width = document.documentElement.clientWidth;
+    const rem = parseFloat(getComputedStyle(document.documentElement).fontSize)
+    const railItemWidth = 17 * rem;
+    const slidesToShow = Math.floor(width / railItemWidth)
+
     return (
       <List>
         <h2>Agora no BBB</h2>
   
          <div className="feature-wrapper">
-          <FeatureItem />
-          <FeatureItem />
-          <FeatureItem />
+         <Carousel
+            enableKeyboardControls
+            slidesToShow={slidesToShow}
+            withoutControls
+            width="100vw"
+            transitionMode="scroll"
+        >
+            <FeatureItem category="Realities" title="Sala de estar" />
+            <FeatureItem category="Realities" title="Varanda" />
+            <FeatureItem category="Realities" title="Piscina" />
+            <FeatureItem category="Realities" title="Academia" />
+            <FeatureItem category="Realities" title="Chuveiro" />
+       </Carousel>
         </div>
       </List>
     )
