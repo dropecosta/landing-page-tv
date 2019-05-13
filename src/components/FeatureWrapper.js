@@ -5,11 +5,11 @@ import FeatureList from './FeatureList';
 import styled from 'styled-components'
 
 const Wrapper = styled.div`
-    display: flex;
-    flex-direction: column;
+    display: block;
+    // flex-direction: column;
     justify-content: space-around;
     flex-wrap: wrap;
-    height: 100vh;
+    height: 50vh;
     width: 100%;
     position: relative;
     text-align: left;

@@ -5,21 +5,26 @@ import Sidebar from './components/Sidebar'
 import Background from './components/Background'
 import Feature from './components/Feature'
 
+import store from './redux/store';
+import { Provider } from 'react-redux';
+import { highlightNavigation, sidebarNavigation, featureNavigation } from './redux/AppReducer';
+
 class App extends React.Component {
-  // componentDidMount() {
-  //   document.addEventListener('keydown', event => {
-  //     // console.log(event.keyCode)
-  //     console.log(document.activeElement)
-  //   })
-  // }
+  componentDidMount() {
+    sidebarNavigation()
+    highlightNavigation()
+    featureNavigation()
+  }
 
   render() {
     return (
-      <div className="App">
-        <Sidebar />
-        <Background />
-        <Feature />
-      </div>
+      <Provider store={store}>
+        <div className="App">
+          <Sidebar />
+          <Background />
+          <Feature />
+        </div>
+      </Provider>
     );
   }
 }

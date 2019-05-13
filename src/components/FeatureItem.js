@@ -1,54 +1,33 @@
 import React from 'react';
+import { FaPlay } from 'react-icons/fa';
 
-import styled from 'styled-components'
 
-const Item = styled.div`
-border: none;
-background-image: linear-gradient(transparent, rgba(0, 0, 0, 1)), url('../images/bbb-19-logo.jpg');
-background-size: cover;
-background-position: center center;
-height: 10rem;
-width: 17rem;
-position: relative;
-z-index: 2;
-margin-right: 1.5rem;
-outline: none;
-transition-duration: .5s;
-display: flex;
-flex-direction: column;
-align-items: flex-start;
-justify-content: flex-end;
-color: white;
-padding: 1rem;
-// flex-shrink: 0;
-// flex: 1;
 
-&:focus {
-    transition-duration: .5s;
-    border: 1.5px solid white;
-  }
+ const FeatureItem = ({ category, title, index, show, image}) => {
+  const gradient = 'linear-gradient(transparent, rgba(0, 0, 0, 1))'
 
-   span.category {
-    text-transform: uppercase;
-    font-size: 1rem;
-    font-weight: 100;
-    -webkit-font-smoothing: antialiased;
-  }
-
-   h3 {
-    font-size: 1.4rem;
-    margin: 0;
-  }
-
-`
-
- const FeatureItem = ({ category, title }) => {
   return (
-    <Item>
+    <button
+      className="feature-item"
+      id={`feature-item-${index}`}
+      style= {{
+        backgroundImage: `${gradient}, url('${image}')`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center center'
+      }}
+      index={index}
+      show={show}
+    >
       <span className="category">{category}</span>
-       <h3>{title}</h3>
-    </Item>
+
+      <h3>{title}</h3>
+
+      <div className="overlay">
+        <FaPlay />
+      </div>
+    </button>
   )
+
 }
 
  export default FeatureItem

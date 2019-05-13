@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react'
+import React from 'react'
 import logo from '../img/logo_header.svg'
 
 import styled from 'styled-components'
@@ -8,7 +8,7 @@ const Header = styled.div`
         position: fixed;
         top: 0;
         right: 2.5rem;
-        
+
         svg {
             filter: drop-shadow(2px 2px 0 rgba(0, 0, 0, .8));
           }
@@ -20,7 +20,7 @@ class Feature extends React.Component {
 
     render() {
         return(
-            <Fragment>
+            <main>
                 <Header>
                         <svg 
                             width="160" 
@@ -35,7 +35,7 @@ class Feature extends React.Component {
                 </Header>
 
                 <FeatureWrapper />
-            </Fragment>
+            </main>
         )
     }
 }

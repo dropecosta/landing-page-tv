@@ -2,9 +2,8 @@ import React from 'react';
 import FeatureItem from './FeatureItem';
 import styled from 'styled-components'
 
-// import featureImg from '../img/bbb.jpg';
 import Carousel from 'nuka-carousel';
-
+import { connect } from 'react-redux';
 
 
 const List = styled.div`
@@ -50,11 +49,11 @@ const List = styled.div`
 `
 
 
-const FeatureList = () => {
+const FeatureList = ({featureItems}) => {
     const width = document.documentElement.clientWidth;
-    const rem = parseFloat(getComputedStyle(document.documentElement).fontSize)
-    const railItemWidth = 17 * rem;
-    const slidesToShow = Math.floor(width / railItemWidth)
+    const rem = parseFloat(getComputedStyle(document.documentElement).fontSize)	  
+    const featureItemWidth = 17 * rem;
+    const slidesToShow = Math.floor(width / featureItemWidth)
 
     return (
       <List>
@@ -62,21 +61,28 @@ const FeatureList = () => {
   
          <div className="feature-wrapper">
          <Carousel
-            enableKeyboardControls
-            slidesToShow={slidesToShow}
-            withoutControls
-            width="100vw"
-            transitionMode="scroll"
+          enableKeyboardControls
+          slidesToShow={slidesToShow}
+          withoutControls
+          width="100vw"
+          transitionMode="scroll"
         >
-            <FeatureItem category="Realities" title="Sala de estar" />
-            <FeatureItem category="Realities" title="Varanda" />
-            <FeatureItem category="Realities" title="Piscina" />
-            <FeatureItem category="Realities" title="Academia" />
-            <FeatureItem category="Realities" title="Chuveiro" />
-       </Carousel>
+          {featureItems.map((item, index) => (
+            <FeatureItem
+              { ...item }
+              key={`featureItem#${index}`}
+              index={index}
+            />
+          ))}
+        </Carousel>
         </div>
       </List>
     )
   }
   
-   export default FeatureList 
+  const mapStateToProps = state => {
+    const { featureItems } = state
+    return { featureItems }
+  }
+  
+  export default connect(mapStateToProps, {})(FeatureList)

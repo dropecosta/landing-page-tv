@@ -3,6 +3,8 @@ import styled from 'styled-components'
 import { FiSearch, FiRadio } from 'react-icons/fi';
 import { FaShoppingBag, FaUserCircle, FaHome } from 'react-icons/fa';
 
+import { connect } from 'react-redux';
+
 const Menu = styled.aside`
     display: flex;
     position: fixed;
@@ -11,10 +13,21 @@ const Menu = styled.aside`
     height: 100vh;
     align-items: center;
     left: 0;
+    z-index:10;
     background-color: #222;
     transition :.3s, widith, .3s;
+    &:focus-within {
+        width: 17rem;
+        transition-duration: .5s;
+    
+        ul li button span {
+          opacity: 1;
+          transition-duration: .5s;
+          transition-property: opacity;
+        }
+      }
 
-    &:hover {
+    &:focus, &:hover {
         width: 15rem;
         transition-duration: .5s;
     
@@ -58,6 +71,9 @@ const Menu = styled.aside`
             }
           }
         }
+        
+        
+
       }
 `
 
@@ -94,26 +110,42 @@ class Sidebar extends React.Component {
     }
       
     render() {
-        let links = this.state.links.map((link, i) => 
-            <li ref={i + 1}>
-                <button>
-                <i aria-hidden="true">{ link.icon }</i>
-                <span>{ link.text }</span>
-                </button>
-            </li>);
-
         return (
-            <Menu>
-                <ul>
-                { links }
-                </ul>
-            </Menu>
-        )
-        
-    }
-
-    
+                <Menu>
+                  <ul>
+                    {this.props.sidebarItems.map((item, index) => (
+                      <Button
+                        { ...item }
+                        key={`sidebarItem#${index}`}
+                        index={index}
+                      />
+                    ))}
+                  </ul>
+                </Menu>
+              )       
+    }    
 }
 
+const Button = ({ label, icon, index, ...props }) => {
+    return (
+      <li>
+        <button
+          className="sidebar-item"
+          index={index}
+          id={`sidebar-item-${index}`}
+          { ...props }
+        >
+          {icon || null}
+          <span>{label}</span>
+        </button>
+      </li>
+    )
+  }
 
-export default Sidebar
+
+  const mapStateToProps = state => {
+    const { sidebarItems } = state
+    return { sidebarItems }
+  }
+  
+  export default connect(mapStateToProps, {})(Sidebar)
