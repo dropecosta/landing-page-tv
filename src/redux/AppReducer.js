@@ -3,6 +3,7 @@ import { FiSearch, FiRadio } from 'react-icons/fi';
 import { FaShoppingBag, FaUserCircle, FaHome } from 'react-icons/fa';
 import { keycodes } from '../constants';
 import featureImg from '../img/bbb.jpg';
+import highlightBg from '../img/home_background.jpg';
 
 const INITIAL_STATE = {
   sidebarItems: [
@@ -58,7 +59,16 @@ const INITIAL_STATE = {
       title: "Chuveiro",
       image: featureImg
     }
-  ]
+  ],
+  highlighted: 'headline',
+  focusedFeatureItem: {
+    show: '',
+    title: ''
+  },
+  background: {
+    image: highlightBg,
+    fade: false
+  }
 }
 
 export default (state = INITIAL_STATE, action) => {
@@ -157,5 +167,6 @@ export const featureNavigation = () => {
           break
       }
     })
+    
   })
 }
