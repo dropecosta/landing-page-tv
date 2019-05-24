@@ -1,0 +1,17 @@
+.background {
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background-color: black;
+  z-index: 0;
+  transition-duration: .3s;
+  
+  &.fade {
+    opacity: 0;
+    transition-duration: .3s;
+  }
+}
